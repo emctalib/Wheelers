@@ -13,6 +13,18 @@ import { Link } from 'react-router-dom';
 import { height, width } from 'dom-helpers';
 export default class CarsList extends Component {
   
+state={
+  x:1
+}
+
+increaseMe = ()=>{
+  //var newx=this.x++;
+  this.setState({
+    x:this.state.x++
+  })
+  //this.state.x++;
+}
+
     render() {
         let carImageStlye={
             width:"100%",
@@ -20,6 +32,10 @@ export default class CarsList extends Component {
         }
         return (
             <>
+            x={this.state.x}<br></br>
+            <br></br>
+            <button onClick={this.increaseMe}>click</button>
+            <br></br>
             {this.props.cars.map((car) => {
               return (
                 car.make
